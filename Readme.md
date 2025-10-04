@@ -193,11 +193,31 @@ jobs:
           name: playwright-report
           path: playwright-report
 
-### ✅ Jenkins / GitLab / Azure (Optional)
+⚙️ CI/CD - GitHub Actions
 
-- **Jenkins** → Create a freestyle job or pipeline (`Jenkinsfile`), install Node.js, and run `npx playwright test`.  
-- **GitLab CI** → Add a `.gitlab-ci.yml` file with stages for `install` and `test`.  
-- **Azure DevOps** → Use a YAML pipeline and run the tests inside an `npm` job.  
+This project includes a GitHub Actions workflow (.github/workflows/playwright.yml) which automatically runs tests on every push/PR to main.
+
+How it works:
+
+Checkout repo
+
+Install Node.js & dependencies
+
+Install Playwright browsers
+
+Run test suite
+
+Upload Playwright HTML Report as artifact
+
+View Actions:
+
+Navigate to the Actions tab in this repo.
+
+Select the latest workflow run to:
+
+View logs
+
+Download the Playwright HTML Report artifact
 
 🛠️ Tech Stack
 
