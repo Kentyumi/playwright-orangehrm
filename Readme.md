@@ -149,13 +149,55 @@ Reports → Playwright HTML + Allure Report
 
 🚀 CI/CD Integration
 
-This project includes a GitHub Actions workflow (.github/workflows/playwright.yml) to:
+This framework is designed to be CI/CD ready.  
+You can integrate it with **GitHub Actions, Jenkins, GitLab CI/CD, or Azure DevOps**.
 
-Install dependencies
+### Example: GitHub Actions Workflow
 
-Run Playwright tests on push/pull requests
+Create a file `.github/workflows/playwright.yml`:
 
-Upload test results and reports
+```yaml
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Tests
+        run: npx playwright test --reporter=html
+
+      - name: Upload Playwright HTML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report
+          path: playwright-report
+
+### ✅ Jenkins / GitLab / Azure (Optional)
+
+- **Jenkins** → Create a freestyle job or pipeline (`Jenkinsfile`), install Node.js, and run `npx playwright test`.  
+- **GitLab CI** → Add a `.gitlab-ci.yml` file with stages for `install` and `test`.  
+- **Azure DevOps** → Use a YAML pipeline and run the tests inside an `npm` job.  
 
 🛠️ Tech Stack
 
@@ -166,10 +208,6 @@ Node.js / npm
 GitHub Actions for CI
 
 ✨ Future Enhancements
-
-Add API test layer
-
-Implement Page Object Model (POM)
 
 Add performance and regression test suites
 
