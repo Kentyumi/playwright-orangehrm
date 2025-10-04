@@ -1,25 +1,18 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../pages/login.page';
 
-test.describe('Login Tests (POM)', () => {
-
-  test('Open login page', async ({ page }) => {
+test.describe('Login tests', () => {
+  test('Login thành công với credential hợp lệ', async ({ page }) => {
     const loginPage = new LoginPage(page);
-
-    await loginPage.goto();
+    await page.goto('/');
+    await loginPage.login('Admin', 'admin123');
+    await expect(page).toHaveURL(/dashboard/);
   });
 
-  test('Open login page2', async ({ page }) => {
+  test('Login thất bại với password sai', async ({ page }) => {
     const loginPage = new LoginPage(page);
-
-    await loginPage.goto();
+    await page.goto('/');
+    await loginPage.login('Admin', 'wrongpass');
+    await expect(await loginPage.getErrorMessage()).toContain('Invalid');
   });
-
-  test('Open login page3', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-
-    await loginPage.goto();
-  });
-
-
 });

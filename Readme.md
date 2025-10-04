@@ -18,13 +18,29 @@ The framework is designed to be:
 
 📂 Project Structure
 playwright-orangehrm/
- ┣ tests/
- ┃ ┣ login.spec.ts       # Test cases for Login
- ┃ ┗ search.spec.ts      # Test cases for Search
- ┣ playwright.config.ts  # Playwright configuration
- ┣ package.json
- ┣ README.md
- ┗ .github/workflows/    # GitHub Actions CI pipeline
+├─ .github/
+│  └─ workflows/
+│     └─ ci.yml             # CI/CD pipeline
+├─ pages/                   # Page Object Model
+│  ├─ base.page.ts
+│  ├─ login.page.ts
+│  ├─ dashboard.page.ts
+│  └─ users.page.ts
+├─ tests/                   # Test cases
+│  ├─ login.spec.ts
+│  └─ search.spec.ts
+├─ fixtures/                # Fixture 
+│  └─ auth.fixture.ts
+├─ utils/                   # Helper & logger
+│  ├─ logger.ts
+│  └─ helpers.ts
+├─ reports/                 # report 
+├─ playwright.config.ts
+├─ package.json
+├─ tsconfig.json
+├─ .env.example
+├─ .gitignore
+└─ README.md
 
 🧪 Test Scenarios Covered
 Login Module
