@@ -1,0 +1,2 @@
+2025-10-04 15:11:45 [info]: 🔎 Verify URL contains: /dashboard
+2025-10-04 15:11:45 [info]: 🔎 Verify heading is visible: Dashboard
