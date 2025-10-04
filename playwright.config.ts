@@ -1,3 +1,4 @@
+import { ListToolsResultSchema } from '@modelcontextprotocol/sdk/types.js';
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
@@ -15,7 +16,7 @@ export default defineConfig({
     ['html'] 
   ],
   use: {
-    headless: false,
+    headless: true,
     viewport: { width: 1280, height: 720 },
     screenshot: 'only-on-failure',
     video: 'on',
