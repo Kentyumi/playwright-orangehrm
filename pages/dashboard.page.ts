@@ -7,4 +7,9 @@ export class DashboardPage extends BasePage {
     super(page);
   }
 
+  async verifyDashboardPage() {
+    await this.verifyUrlContains('/dashboard');
+    await this.verifyHeadingVisible('Dashboard');
+  }
+
 }
