@@ -87,9 +87,65 @@ npx playwright test --project=webkit
 
 📊 Reporting
 
-Generate and open HTML report:
+1. Playwright HTML Report (default)
+
+Playwright provides a built-in HTML report with detailed steps, screenshots, videos, and traces.
+
+Generate report:
+
+npx playwright test --reporter=html
+
+
+Open report in browser:
 
 npx playwright show-report
+
+
+👉 Report includes:
+
+Test steps & results
+
+Screenshots & videos for failures
+
+Trace viewer
+
+2. Allure Report (advanced, enterprise-ready)
+
+Allure provides a more advanced reporting system with graphs, timelines, and attachments.
+
+Install Allure dependencies:
+npm install --save-dev allure-playwright
+
+Update playwright.config.ts:
+reporter: [
+  ['list'],
+  ['html'],
+  ['allure-playwright']
+],
+
+Generate & open Allure report:
+npx playwright test
+npx allure generate ./allure-results --clean -o ./allure-report
+npx allure open ./allure-report
+
+
+👉 Report includes:
+
+Dashboard with pass/fail statistics
+
+Timeline of executions
+
+Screenshots, videos, and logs attached
+
+History tracking across multiple runs
+
+✅ Deliverables
+
+Test Case Suite → Excel/Google Sheets
+
+Automation Framework → Public GitHub repo
+
+Reports → Playwright HTML + Allure Report
 
 🚀 CI/CD Integration
 
