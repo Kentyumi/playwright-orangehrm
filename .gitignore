@@ -9,6 +9,11 @@ blob-report/
 *.tar
 *.tgz
 
+# Ignore Allure results
+allure-results/
+allure-report/
+
+
 # Logs
 *.log
 npm-debug.log*
