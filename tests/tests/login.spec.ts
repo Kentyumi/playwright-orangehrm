@@ -12,7 +12,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Login tests', () => {
-  test("Login with admin account", async ({ page }) => {
+  test("Login with admin account successfully", async ({ page }) => {
   await loginPage.goto(getUrl("orangeHRM"));  
   await loginPage.loginWithUserAndPassword("adminUser");
   await dashboardPage.verifyDashboardPage();
